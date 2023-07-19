@@ -24,6 +24,8 @@ Lets assume we have 3 producers
 3. -- Given that we take 1page from every producer folder, when data is dumped into the target kafka topic we get R rows(10 rows) from each producer page. Hence even if P2 duped 1M messages, in the taret kafka topic we see only 10 msgs from p2, 10 msgs from p1, p3. This solves the "noisy neighbor" issue by fairly scheduling between the producers. 
 4. sleep 10 seconds and go to (i)
 
+meaning first we read all green page of all producers first, followed by red page, followed by yellow pages. Concatinate the rows from each of these pages and dump the result into the target kafka topic. So this way you will see that a fat produer/ noisy producer will not affect the thin producer.
+
 ## (iv) backup and restore
 1. every 5min we sync the data to s3.
 2. every time the application startsup we first take data from s3 into the local folder. 
