@@ -35,4 +35,4 @@ meaning first we read all green page of all producers first, followed by red pag
 # inspirations
 Netflix timestone
 
-Any questions, please let me know by raising tickets. I have a working implementation to the above. But wanted to know how others are handling this issue of noisy producers.
+Any questions, please let me know by raising tickets. I have a working implementation to the above. But wanted to know how others are handling this issue of noisy producers. I have seen Amazon.in implementation on youtube and they say they use 3 kafka topics. But, in my view this doesnt really solve the issue of noisy neighbors. 
